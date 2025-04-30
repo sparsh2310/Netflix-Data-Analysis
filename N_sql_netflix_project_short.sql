@@ -23,7 +23,7 @@ select * from netflix;
 -- 1. Count the number of Movies vs TV Shows
 
 select type, count(type) as No_of_Movies_and_TV_Shows from netflix
-group by 1;
+group by type;
 
 
 -- 2. Find the most avg rating for movies and TV shows:
@@ -34,7 +34,7 @@ SELECT rating, COUNT(*) AS rating_count
 FROM netflix
 GROUP BY rating
 ORDER BY rating_count DESC
-LIMIT 1;
+LIMIT rating;
 
 -- 3. List all movies released in a specific year (e.g., 2020):
 
@@ -45,8 +45,8 @@ and   release_year = '2021';
 -- 4. Find the top 5 countries with the most content on Netflix
 select  * from netflix;
 select  country , count(*) as No_content from netflix
-group by 1
-order by 2 desc limit 5;
+group by country
+order by No_content desc limit 5;
 
 -- 5. Identify the longest movie:
 select  * from netflix;
@@ -71,7 +71,7 @@ where duration > '3 Season';
 -- 9. Count the number of content items in each genre
 
 select  type, count(*) as No_content_genre from netflix
-group by 1;
+group by type;
 
 -- 10. Find each year and the average numbers of content release by India on netflix. 
 -- return top 5 year with highest avg content release !
@@ -89,12 +89,3 @@ group by 1;
   select casts, count(*)as salman_movies  from netflix
   where casts  = 'Mayur More'
   group by casts;
-  
-  -- 14. Find the top 10 actors who have appeared in the highest number of movies produced in India.
- select  * from netflix;
- -- data insuffcuent
-
- 
- 
- 
- 
